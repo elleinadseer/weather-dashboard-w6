@@ -1,0 +1,49 @@
+body {margin: 0px}
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.top {
+    width: 100%;
+    background-image: linear-gradient(to right, lightblue , blue);
+    color: white;
+    text-align: center;
+    padding: 8px;
+}
+
+.flex-column {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+#side-search {
+    padding: 30px;
+    flex-basis: 20%;
+}
+
+#forecast {
+    flex-basis: 70%;
+    padding: 10px;
+    margin: 10px;
+}
+
+#five-day {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+#panel-one, #panel-two {
+    flex-basis: 18%;
+    background-color: darkblue;
+    color: white;
+    padding: 10px;
+    border: white 5px solid;
+}
+
+.border {
+    border: lightgrey 2px solid;
+    padding: 10px;
+}
