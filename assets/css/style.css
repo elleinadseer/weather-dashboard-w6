@@ -4,7 +4,7 @@ body {margin: 0px}
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.top {
+header {
     width: 100%;
     background-image: linear-gradient(to right, lightblue , blue);
     color: white;
@@ -39,7 +39,7 @@ body {margin: 0px}
     flex-basis: 18%;
     background-color: darkblue;
     color: white;
-    padding: 10px;
+    padding: 5px;
     border: white 5px solid;
 }
 
@@ -47,3 +47,4 @@ body {margin: 0px}
     border: lightgrey 2px solid;
     padding: 10px;
 }
+

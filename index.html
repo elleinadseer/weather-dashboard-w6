@@ -9,9 +9,9 @@
 </head>
 
 <body>
-    <section class="top">
+    <header>
         <h2>Weather Dashboard</h2>
-    </section>
+    </header>
 
     <div class="flex-column">
 
@@ -19,14 +19,15 @@
         <h3>Search for a City:</h3>
 
         <form>
-            <input value='Enter city'/>
+            <input class="cityInput" type="text" list="search-data" style="height: 30px; width: 284px;"><br>
             </select><br>
-            <input type="submit" value="Search">
+            <button type="search" class="searchButton" style="height: 30px; width: 292px; background-color: blue; color: white;">Search</button>
+            <datalist id="search-data"></datalist>
         </form>
     
-        <hr>
+        <p></p><hr><p></p>
 
-        <button type="button"> City Example </button>
+        <button type="button" style="height: 30px; width: 292px;"> City Example </button>
     </section>
 
 
@@ -60,6 +61,29 @@
             <p>Humidity</p>
         </section>
 
+        <section id="panel-two">
+            <p>Date</p>
+            <p>Emoji</p>
+            <p>Temp</p>
+            <p>Wind</p>
+            <p>Humidity</p>
+        </section>
+
+        <section id="panel-two">
+            <p>Date</p>
+            <p>Emoji</p>
+            <p>Temp</p>
+            <p>Wind</p>
+            <p>Humidity</p>
+        </section>
+
+        <section id="panel-two">
+            <p>Date</p>
+            <p>Emoji</p>
+            <p>Temp</p>
+            <p>Wind</p>
+            <p>Humidity</p>
+        </section>
 
         </section> <!-- Ending of "forecast" section -->
 
