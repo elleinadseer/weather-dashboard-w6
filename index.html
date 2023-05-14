@@ -19,9 +19,9 @@
         <h3>Search for a City:</h3>
 
         <form>
-            <input class="cityInput" type="text" list="search-data" style="height: 30px; width: 284px;"><br>
+            <input id="cityInput" type="text" list="search-data" style="height: 30px; width: 284px;"><br>
             </select><br>
-            <button type="search" class="searchButton" style="height: 30px; width: 292px; background-color: blue; color: white;">Search</button>
+            <button type="search" id="searchButton" style="height: 30px; width: 292px; background-color: blue; color: white;">Search</button>
             <datalist id="search-data"></datalist>
         </form>
     
@@ -33,11 +33,11 @@
 
     <section id="forecast">
         <section class ="border">
-        <h3>Example City / Date</h3> <span>Emoji</span>
+        <h3 id="city-name">Example City / Date</h3> <span>Emoji</span>
 
-         <p>Temp: #</p>
-         <p>Wind: #</p>
-         <p>Humidity: #</p>
+         <p id="temp">Temp: #</p>
+         <p id="wind">Wind: #</p>
+         <p id="humidity">Humidity: #</p>
          
          </section>
          <h3>5-Day Forecast:</h3>
@@ -85,7 +85,7 @@
             <p>Humidity</p>
         </section>
 
-        </section> <!-- Ending of "forecast" section -->
+    </section> <!-- Ending of "forecast" section -->
 
 
 
@@ -100,6 +100,6 @@
 
 
     </div>
-    <script src="./assets/script.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>

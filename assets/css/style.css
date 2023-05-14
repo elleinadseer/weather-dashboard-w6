@@ -33,9 +33,10 @@ header {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
+    display: none;
 }
 
-#panel-one, #panel-two {
+.weather-info {
     flex-basis: 18%;
     background-color: darkblue;
     color: white;
