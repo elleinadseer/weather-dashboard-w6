@@ -1,8 +1,7 @@
 # scheduler-w5
 ## Description
 
-I have been tasked to build a weather dashboard that will run in the browser and feature dynamically updated HTML and CSS
- - I have utilised the OpenWeather API in order to do this. When a city name is entered you will be shown the city name, the date, an icon representation of weather conditions, the temperature, the humidity and the wind speed of that city. Additionally you will be presented with a five day forecast that shows the same information for the next few days forecast. 
+I have been tasked to build a weather dashboard that will run in the browser and feature dynamically updated HTML and CSS - I have utilised the OpenWeather API in order to do this. When a city name is entered you will be shown the city name, the date, an icon representation of weather conditions, the temperature, the humidity and the wind speed of that city. Additionally you will be presented with a five day forecast that shows the same information for the next few days forecast. 
 
 I have implemented local storage to create a search history. When clicking on a city name in the search history you will be presented with the weather conditions (including five day forecast) for a previously searched for city. 
 
@@ -16,13 +15,13 @@ https://github.com/elleinadseer/weather-dashboard-w6
 
 ## Development
 
-This task was very difficult and I'm happy with the amount of hurdles I managed to overcome - there is one issue with the code where when you click on a history button the city title flashes for a second but doesn't transform the title correctly. I didn't know how to overcome this so that is a shame but otherwise I'm happy I was able implement the icons and date and pushing the weather data associated with the history button usage correctly.
+This task was very difficult and I'm happy with the amount of hurdles I managed to overcome. I was able implement the icons and date and pushing the weather data associated with the history button usage correctly. I struggled with getting the city title to change with the usage of the history buttons for many hours - an incredibly minor issue that turned out to just be because of a missing bracket. 
 
 I think in future I'm going to try harder to document my comments as I go along, as I lacked that this time and there were times I felt somewhat lost in my own code. I want to code with clearer intent in future. 
 
 ## Usage
 
-![Screenshot 2023-05-18 at 4 15 27 pm](https://github.com/elleinadseer/weather-dashboard-w6/assets/126515415/1ef69e3a-900a-4800-9b6e-4e39c5e26c8f)
+![Screenshot 2023-05-18 at 4 58 12 pm](https://github.com/elleinadseer/weather-dashboard-w6/assets/126515415/59bc56b4-18e8-4fca-8b8f-4c5a7faaeab0)
 
 ## Credits
 

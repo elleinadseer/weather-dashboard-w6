@@ -1,5 +1,3 @@
-// Need to add emoji AND search history
-
 const WEATHER_API_BASE_URL = 'https://api.openweathermap.org'; 
 const WEATHER_API_KEY = '3770aa61038a0816864d556d797ecb9f'; 
 const MAX_DAILY_FORECAST = 5;
@@ -189,6 +187,7 @@ const displayWeather = (weatherData) => {
     // Call the getCity function here
     getCity();
   });
+
 
 
 
