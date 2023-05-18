@@ -65,7 +65,6 @@ var displayCurrentWeather = (weatherData) => {
 
     var date = document.getElementById('date')
     date.textContent = new Date(currentWeather.dt*1000).toLocaleDateString('en-GB', {day: '2-digit', month: '2-digit', year: 'numeric'}); 
-    console.log(date);
 
     // Display the Current Weather at the top of the Dashboard 
     document.getElementById('city-name').textContent = `${cityInput.value}`;
@@ -126,7 +125,8 @@ var displayCurrentWeather = (weatherData) => {
 const getWeather = (lat, lon) => {
 
     // Get the Weather for the cached location
-    var apiUrl = `${WEATHER_API_BASE_URL}/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=minutely,hourly&appid=${WEATHER_API_KEY}`;    console.log(apiUrl);
+    var apiUrl = `${WEATHER_API_BASE_URL}/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=minutely,hourly&appid=${WEATHER_API_KEY}`;    
+    console.log(apiUrl);
     fetch(apiUrl)
          .then(response => response.json())
          .then(data => {
@@ -158,8 +158,11 @@ const displayWeather = (weatherData) => {
 
     searchButton.addEventListener('click', getCity);
 
+
     searchButton.addEventListener("click", function(event){
         event.preventDefault();
+
+        forecast.style.display = 'block';
 
         var cityValue = document.getElementById('cityInput').value; 
 
@@ -175,6 +178,7 @@ const displayWeather = (weatherData) => {
 
         savedHistoryButtons.forEach(button => button.addEventListener("click", handleClick));
 
+
         function handleClick(event) {
 
             var clickedHistoryButton = event.target;
@@ -188,32 +192,33 @@ const displayWeather = (weatherData) => {
           fdList.innerHTML = '';
 
           for (let i = 0; i <MAX_DAILY_FORECAST; i++) {
-          // Add the new Forecasts so they are displayed for (let i = 0; i < MAX_DAILY_FORECAST; i++) {
-          document.getElementById('city-name').textContent = buttonContent;
-          var dayForecast = dayData[i];
-          var day = new Date(dayForecast.dt*1000).toLocaleDateString('en-GB', {weekday: 'long'}); 
-          var temp = `Temp: ${dayForecast.temp.day} Celsius`;
-          var humidity = `Humidity: ${dayForecast.humidity}%`; 
-          var wind = `Wind: ${dayForecast.wind_speed} MPH`;
+
+            document.getElementById('city-name').textContent = buttonContent;
+          
+          var historyDayForecast = dayData[i];
+          var historyDay = new Date(historyDayForecast.dt*1000).toLocaleDateString('en-GB', {weekday: 'long'}); 
+          var historyTemp = `Temp: ${historyDayForecast.temp.day} Celsius`;
+          var historyHumidity = `Humidity: ${historyDayForecast.humidity}%`; 
+          var historyWind = `Wind: ${historyDayForecast.wind_speed} MPH`;
       
-          var newForecast = document.createElement('div'); 
-          newForecast.classList.add('forecast-day'); 
-          newForecast.innerHTML = `<div class="weather-info"> 
+          var historyForecast = document.createElement('div'); 
+          historyForecast.classList.add('forecast-day'); 
+          historyForecast.innerHTML = `<div class="weather-info"> 
                    <div class="date">
-                   <span>${day}</span>
+                   <span>${historyDay}</span>
                    </div>
                    <p></p>
                    <div class="temperature">
-                   <span>${temp}</span>
+                   <span>${historyTemp}</span>
                    </div>
                    <div class="wind">
-                   <span>${wind}</span>
+                   <span>${historyWind}</span>
                    </div>
                    <div class="humidity">
-                   <span>${humidity}</span>
+                   <span>${historyHumidity}</span>
                    </div>
                </div>`;
-           fdList.appendChild(newForecast); 
+           fdList.appendChild(historyForecast); 
         
         }
         }
