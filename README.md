@@ -1,8 +1,7 @@
 # scheduler-w5
 ## Description
 
-I have been tasked to build a weather dashboard that will run in the browser and feature dynamically updated HTML and CSS
- - I have utilised the OpenWeather API in order to do this. When a city name is entered you will be shown the city name, the date, an icon representation of weather conditions, the temperature, the humidity and the wind speed of that city. Additionally you will be presented with a five day forecast that shows the same information for the next few days forecast. 
+I have been tasked to build a weather dashboard that will run in the browser and feature dynamically updated HTML and CSS - I have utilised the OpenWeather API in order to do this. When a city name is entered you will be shown the city name, the date, an icon representation of weather conditions, the temperature, the humidity and the wind speed of that city. Additionally you will be presented with a five day forecast that shows the same information for the next few days forecast. 
 
 I have implemented local storage to create a search history. When clicking on a city name in the search history you will be presented with the weather conditions (including five day forecast) for a previously searched for city. 
 
