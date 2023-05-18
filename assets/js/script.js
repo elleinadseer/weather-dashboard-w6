@@ -1,7 +1,7 @@
 // Need to add emoji AND search history
 
 const WEATHER_API_BASE_URL = 'https://api.openweathermap.org'; 
-const WEATHER_API_KEY = 'f23ee9deb4e1a7450f3157c44ed020e1'; 
+const WEATHER_API_KEY = '3770aa61038a0816864d556d797ecb9f'; 
 const MAX_DAILY_FORECAST = 5;
 const fdList = document.getElementById('five-day'); 
 var forecast = document.getElementById('forecast');
@@ -156,9 +156,6 @@ const displayWeather = (weatherData) => {
     var cityInput = document.getElementById('cityInput'); 
     var searchButton = document.getElementById('searchButton');
 
-    searchButton.addEventListener('click', getCity);
-
-
     searchButton.addEventListener("click", function(event){
         event.preventDefault();
 
@@ -180,6 +177,8 @@ const displayWeather = (weatherData) => {
 
 
         function handleClick(event) {
+
+            event.preventDefault();
 
             var clickedHistoryButton = event.target;
           var buttonContent = clickedHistoryButton.innerText; // Retrieve the button contents
@@ -221,11 +220,11 @@ const displayWeather = (weatherData) => {
            fdList.appendChild(historyForecast); 
         
         }
-        }
-        }
-    )
-
-
+    }
+  
+    // Call the getCity function here
+    getCity();
+  });
 
 
 
