@@ -1,5 +1,3 @@
-// Need to add emoji AND search history
-
 const WEATHER_API_BASE_URL = 'https://api.openweathermap.org'; 
 const WEATHER_API_KEY = '3770aa61038a0816864d556d797ecb9f'; 
 const MAX_DAILY_FORECAST = 5;
@@ -18,15 +16,14 @@ const getCity = () => {
 const tellWeather = (search) => {
 
  // Lookup the location to get the Lat/Lon
- //var apiUrl = WEATHER_API_BASE_URL + "/geo/1.0/direct?q=" + search + "&limit=5&appid=" + WEATHER_API_KEY; 
  var apiUrl = `${WEATHER_API_BASE_URL}/geo/1.0/direct?q=${search}&limit=5&appid=${WEATHER_API_KEY}`;
  fetch (apiUrl)
      .then(response => response.json())
      .then(data => {
 
          console.log(data);
+
          // Pick the First location from the results
-         //const location = data[0];
          var lat = data[0].lat;
          var lon = data[0].lon;
 
@@ -39,7 +36,7 @@ const tellWeather = (search) => {
 
          console.log(myData);
 
-         // Get the Weather for the cached location
+         // Get the Weather
          var apiUrl = `${WEATHER_API_BASE_URL}/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=minutely,hourly&appid=${WEATHER_API_KEY}`;         
          fetch(apiUrl)
              .then(response => response.json())
@@ -67,7 +64,6 @@ var displayCurrentWeather = (weatherData) => {
     date.textContent = new Date(currentWeather.dt*1000).toLocaleDateString('en-GB', {day: '2-digit', month: '2-digit', year: 'numeric'}); 
 
     // Display the Current Weather at the top of the Dashboard 
-    document.getElementById('city-name').textContent = `${cityInput.value}`;
     document.getElementById('icon').innerHTML = `<img src="https://openweathermap.org/img/wn/${currentWeather.weather[0].icon}@2x.png"/>`;
     document.getElementById('temp').textContent = `Temp: ${currentWeather.temp} Celsius`;
     document.getElementById('wind').textContent = `Wind: ${currentWeather.wind_speed} MPH`; 
@@ -143,7 +139,7 @@ const getWeather = (lat, lon) => {
 
 // Display the Weather for the cached location
 const displayWeather = (weatherData) => {
-    document.getElementById('city-name'.textContent = `${weatherData.name}, ${weatherData.country}`)
+    document.getElementById('city-name').textContent = `${weatherData.name}, ${weatherData.country}`;
 
     getWeather(weatherData.lat, weatherData.lon);
 
@@ -178,53 +174,20 @@ const displayWeather = (weatherData) => {
 
         function handleClick(event) {
 
-            event.preventDefault();
-
             var clickedHistoryButton = event.target;
           var buttonContent = clickedHistoryButton.innerText; // Retrieve the button contents
 
-          // You can perform further actions with the updated content variable
           console.log("Updated content:", buttonContent);
 
           tellWeather(buttonContent);
-          
-          fdList.innerHTML = '';
 
-          for (let i = 0; i <MAX_DAILY_FORECAST; i++) {
-
-            document.getElementById('city-name').textContent = buttonContent;
-          
-          var historyDayForecast = dayData[i];
-          var historyDay = new Date(historyDayForecast.dt*1000).toLocaleDateString('en-GB', {weekday: 'long'}); 
-          var historyTemp = `Temp: ${historyDayForecast.temp.day} Celsius`;
-          var historyHumidity = `Humidity: ${historyDayForecast.humidity}%`; 
-          var historyWind = `Wind: ${historyDayForecast.wind_speed} MPH`;
-      
-          var historyForecast = document.createElement('div'); 
-          historyForecast.classList.add('forecast-day'); 
-          historyForecast.innerHTML = `<div class="weather-info"> 
-                   <div class="date">
-                   <span>${historyDay}</span>
-                   </div>
-                   <p></p>
-                   <div class="temperature">
-                   <span>${historyTemp}</span>
-                   </div>
-                   <div class="wind">
-                   <span>${historyWind}</span>
-                   </div>
-                   <div class="humidity">
-                   <span>${historyHumidity}</span>
-                   </div>
-               </div>`;
-           fdList.appendChild(historyForecast); 
-        
-        }
+          event.preventDefault();
     }
   
     // Call the getCity function here
     getCity();
   });
+
 
 
 
