@@ -23,6 +23,16 @@ header {
     flex-basis: 20%;
 }
 
+#city-name {
+    text-transform: capitalize;
+}
+
+#saved-cities button {
+    height: 30px; 
+    width: 292px;
+    margin-bottom: 5px;
+}
+
 #forecast {
     flex-basis: 70%;
     padding: 10px;
@@ -34,6 +44,13 @@ header {
     flex-wrap: wrap;
     flex-direction: row;
     display: none;
+}
+
+#searchButton {
+    height: 30px; 
+    width: 292px; 
+    background-color: blue;
+    color: white;
 }
 
 .weather-info {
@@ -48,4 +65,5 @@ header {
     border: lightgrey 2px solid;
     padding: 10px;
 }
+
 
