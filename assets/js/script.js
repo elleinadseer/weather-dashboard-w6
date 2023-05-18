@@ -4,7 +4,6 @@ const MAX_DAILY_FORECAST = 5;
 const fdList = document.getElementById('five-day'); 
 var forecast = document.getElementById('forecast');
 
-
 const getCity = () => {
     // Get the Location entered by the user
     const userLocation = cityInput.value;
@@ -63,7 +62,7 @@ var displayCurrentWeather = (weatherData) => {
     var date = document.getElementById('date')
     date.textContent = new Date(currentWeather.dt*1000).toLocaleDateString('en-GB', {day: '2-digit', month: '2-digit', year: 'numeric'}); 
 
-    // Display the Current Weather at the top of the Dashboard 
+    // Display the Current Weather
     document.getElementById('icon').innerHTML = `<img src="https://openweathermap.org/img/wn/${currentWeather.weather[0].icon}@2x.png"/>`;
     document.getElementById('temp').textContent = `Temp: ${currentWeather.temp} Celsius`;
     document.getElementById('wind').textContent = `Wind: ${currentWeather.wind_speed} MPH`; 
@@ -84,7 +83,7 @@ var displayCurrentWeather = (weatherData) => {
     fdList.innerHTML = '';
 
     for (let i = 0; i <MAX_DAILY_FORECAST; i++) {
-    // Add the new Forecasts so they are displayed for (let i = 0; i < MAX_DAILY_FORECAST; i++) {
+    // Add the new Forecasts so they are displayed one each
     var dayForecast = dayData[i];
     var day = new Date(dayForecast.dt*1000).toLocaleDateString('en-GB', {weekday: 'long'}); 
     var icon = `<img src="https://openweathermap.org/img/wn/${dayForecast.weather[0].icon}@2x.png"/>`;
@@ -116,11 +115,9 @@ var displayCurrentWeather = (weatherData) => {
     }
 }
 
-
-
 const getWeather = (lat, lon) => {
 
-    // Get the Weather for the cached location
+    // Get the Weather
     var apiUrl = `${WEATHER_API_BASE_URL}/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=minutely,hourly&appid=${WEATHER_API_KEY}`;    
     console.log(apiUrl);
     fetch(apiUrl)
@@ -137,15 +134,13 @@ const getWeather = (lat, lon) => {
          })
 }
 
-// Display the Weather for the cached location
+// Display the name and country
 const displayWeather = (weatherData) => {
     document.getElementById('city-name').textContent = `${weatherData.name}, ${weatherData.country}`;
 
     getWeather(weatherData.lat, weatherData.lon);
 
 }
-
-
 
 // Search Text and Search Button
 
@@ -171,6 +166,7 @@ const displayWeather = (weatherData) => {
 
         savedHistoryButtons.forEach(button => button.addEventListener("click", handleClick));
 
+        // When history buttons are clicked this function will play out 
 
         function handleClick(event) {
 
@@ -184,7 +180,7 @@ const displayWeather = (weatherData) => {
           event.preventDefault();
     }
   
-    // Call the getCity function here
+    // Call the getCity function for the search button
     getCity();
   });
 
